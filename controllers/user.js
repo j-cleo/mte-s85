@@ -18,7 +18,8 @@ module.exports.registerUser = (req, res) => {
 
 		return newUser.save().then((result) => res.status(201).send({
 			message: "Registered successfully!"
-		})).catch(err => errorHandler(err, req, res));
+		}))
+		.catch(err => errorHandler(err, req, res));
 
 	}
 };
@@ -54,7 +55,7 @@ module.exports.loginUser = (req, res) => {
         }
 
     })
-    .catch(error => errorHandler(error, req, res))
+    .catch(error => errorHandler(error, req, res));
 }
 
 module.exports.getProfile = (req, res) => {
@@ -72,6 +73,6 @@ module.exports.getProfile = (req, res) => {
 			});
 		}
 	})
-	.catch(error => errorHandler(error, req, res))
+	.catch(error => errorHandler(error, req, res));
 
 };
